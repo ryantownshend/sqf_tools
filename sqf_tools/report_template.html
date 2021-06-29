@@ -1,0 +1,40 @@
+<html>
+
+<body>
+	<h1>{{root}}</h1>
+
+	{% for key, value in data.items() %}
+		<section>
+			<h2><a href="#{{key}}">{{key}}</a></h2>
+			<section>
+				<ul>
+				{% for k, v in value.items() %}
+					<li><a href="#{{k}}">{{k}}</a></li>
+					{# <li>{{k}}</li> #}
+				{% endfor %}
+				</ul>
+			</section>
+		</section>
+
+	{% endfor %}
+
+
+	{% for key, value in data.items() %}
+		<section>
+			<h2><a id="{{key}}">{{key}}</a></h2>
+			{% for k, v in value.items() %}
+			<section>
+				<h3><a id="{{k}}">{{k}}</a></h3>
+				{% for kf, vf in v.items() %}
+					<pre>{{vf}}</pre>
+				{% endfor %}
+			</section>
+			{% endfor %}
+		</section>
+
+	{% endfor %}
+
+</body>
+
+</html>
+
